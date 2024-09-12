@@ -7,5 +7,21 @@
 </head>
 <body>
     <h1>to add movie</h1>
+    <form method="POST" action ="{% url 'addMovie' %}" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <label>Image</label>
+        <input type="file" name="image">
+        <label>title</label>
+        <input type="text" name="title">
+        <label>genre</label>
+        <input type="text" name="genre">
+        <label>director</label>
+        <input type="text" name="director">
+        <label>ratings</label>
+        <input type="number" name="ratings">
+        <label>description</label>
+        <input type="text" name="description">
+        <button type="submit">Add</button>
+    </form>
 </body>
 </html>

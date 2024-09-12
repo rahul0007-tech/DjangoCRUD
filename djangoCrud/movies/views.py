@@ -4,7 +4,7 @@ from . models import Movie
 # Create your views here.
 def addMovie(request):
     if request.method == "POST":
-        image = request.POST.get('image')
+        image = request.FILES.get('image')
         title = request.POST.get('title')
         director = request.POST.get('director')
         genre =request.POST.get('genre')
@@ -13,7 +13,7 @@ def addMovie(request):
 
         movie = Movie(image=image, title=title, director=director, genre=genre, ratings=ratings, description=description)
         movie.save()
-        return redirect('listMovie')
+        # return redirect('listMovie')
     
     return render(request, 'addMovie.html')
 
