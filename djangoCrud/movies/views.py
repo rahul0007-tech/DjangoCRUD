@@ -13,8 +13,13 @@ def addMovie(request):
 
         movie = Movie(image=image, title=title, director=director, genre=genre, ratings=ratings, description=description)
         movie.save()
-        # return redirect('listMovie')
+        return redirect('listMovie')
     
     return render(request, 'addMovie.html')
+
+
+def listMovie(request):
+    movies = Movie.objects.all()
+    return render(request, 'index.html', {"movies":movies})
 
 

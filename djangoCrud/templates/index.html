@@ -10,6 +10,17 @@
 <body>
     <h1>This is an index page</h1>
     <h1>All the movies are as follows</h1>
+    <div>
+    {% for movie in movies %}
+        <img src={{movie.image.url}} alt=""></img>
+        <h1>{{movie.title}}</h1>
+        <h2>{{movie.director}}</h2>
+        <h3>{{movie.genre}}</h3>
+        <h3>{{movie.ratings}}</h3>
+        <p>{{movie.description}}</p>
+    
+    {% endfor %}
+    </div>
     <a href="movies/addMovie">
         <button>add movie</button>
     </a>

@@ -1,13 +1,22 @@
-body{
+body {
     background-color: aquamarine;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
-.button{
+div {
+    background-color: black;
+    padding: 20px; /* Add padding if needed for spacing */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    width: 60%; /* Adjust the width if needed */
+    margin: auto; /* Center the div */
+}
+
+.button {
     background-color: blue;
     border-radius: 20%;
     box-shadow: inset;
+    color: white; /* Optional: make the button text white */
 }
