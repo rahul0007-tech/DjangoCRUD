@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from . models import Movie
 
 # Create your views here.
@@ -21,5 +21,9 @@ def addMovie(request):
 def listMovie(request):
     movies = Movie.objects.all()
     return render(request, 'index.html', {"movies":movies})
+
+def detailMovie(request, movie_id):
+    movie=get_object_or_404(Movie, pk = movie_id)
+    return render(request,'detailMovie.html',{"movie":movie})
 
 
