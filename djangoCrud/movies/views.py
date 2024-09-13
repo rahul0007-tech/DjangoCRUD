@@ -39,5 +39,13 @@ def updateMovie(request, movie_id):
         return redirect('listMovie')
     return render(request, 'updateMovie.html', {'movie': movie})
 
+def deleteMovie (request, movie_id):
+    movie = get_object_or_404(Movie, id = movie_id)
+    if request.method =="POST":
+        movie.delete()
+        return redirect('listMovie')
+
+    return render(request, 'deleteMovie.html', {"movie":movie})
+
 
 

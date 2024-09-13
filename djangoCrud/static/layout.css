@@ -21,3 +21,7 @@ div {
     box-shadow: inset;
     color: white;
 }
+
+img {
+    width: 100%;
+}
