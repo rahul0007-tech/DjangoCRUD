@@ -14,5 +14,6 @@
     <h3>Genre : {{movie.genre}}</h3>
     <h3>Description</h3>
     <p>{{movie.description}}</p>
+    <a href="{% url 'updateMovie' movie.id %}">Update Movie</a>
 </body>
 </html>

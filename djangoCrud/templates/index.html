@@ -9,19 +9,13 @@
 </head>
 <body>
     <h1>This is an index page</h1>
-    <h1>All the movies are as follows</h1>
-    
-        {% for movie in movies %}
-        <div>
-        <img src={{movie.image.url}} alt=""></img>
-        <a href="{% url 'detailMovie' movie.id %}"><h1>{{movie.title}}</h1></a>
-        </div>
-    
-        {% endfor %}
-    
-
+    <h2>To add movie</h2>
     <a href="movies/addMovie">
-        <button>add movie</button>
+        <button>Add Movie</button>
+    </a>
+    <h2>To view Movie</h2>
+    <a href="movies/listMovie">
+        <button>View Movie</button>
     </a>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Image</label>
+        <input type="file" name="image">
+        <img src="{{movie.image.url}}" alt="">
+        <label>Title</label>
+        <input type="text" name="title" value="{{movie.title}}">
+        <label>Director</label>
+        <input type="text" name="director" value = "{{movie.director}}">
+        <label>Genre</label>
+        <input type="text" name="genre" value = "{{movie.genre}}">
+        <label>Ratings</label>
+        <input type="number" name="ratings" value = "{{movie.ratings}}">
+        <label>Description</label>
+        <textarea type="text" name="description" value = "{{movie.description}}"> </textarea>
+
+        <button type="submit">Update</button>
+
+    </form>
+</body>
+</html>
