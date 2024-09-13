@@ -8,6 +8,7 @@ class Movie(models.Model):
     director = models.CharField(max_length=20)
     genre = models.CharField(max_length=20)
     ratings = models.IntegerField()
+    releaseDate = models.DateField(blank=True)
     description = models.CharField(max_length=100)
 
     def __str__ (self):

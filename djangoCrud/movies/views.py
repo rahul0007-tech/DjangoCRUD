@@ -9,9 +9,10 @@ def addMovie(request):
         director = request.POST.get('director')
         genre =request.POST.get('genre')
         ratings = request.POST.get('ratings')
+        releaseDate = request.POST.get('releaseDate')
         description= request.POST.get('description')
 
-        movie = Movie(image=image, title=title, director=director, genre=genre, ratings=ratings, description=description)
+        movie = Movie(image=image, title=title, director=director, genre=genre, ratings=ratings, releaseDate=releaseDate, description=description)
         movie.save()
         return redirect('listMovie')
     
@@ -34,6 +35,7 @@ def updateMovie(request, movie_id):
         movie.director = request.POST.get('director')
         movie.genre = request.POST.get('genre')
         movie.ratings = request.POST.get('ratings')
+        movie.releaseDate = request.POST.get('releaseDate')
         movie.description = request.POST.get('description')
         movie.save()
         return redirect('listMovie')
