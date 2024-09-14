@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,6 +23,32 @@
         <input type="date" name="releaseDate" value = "{{movie.releaseDate|date:'Y-m-d'}}">
         <label>Description</label>
         <input type="text" name="description" value = "{{movie.description}}"> 
+
+        <button type="submit">Update</button>
+
+    </form>
+</body>
+</html> {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                <li>{{field.label}}:{{error}}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+        {% endif %}
 
         <button type="submit">Update</button>
 

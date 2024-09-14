@@ -38,19 +38,30 @@ def detailMovie(request, movie_id):
     movie=get_object_or_404(Movie, pk = movie_id)
     return render(request,'detailMovie.html',{"movie":movie})
 
+# def updateMovie(request, movie_id):
+#     movie = get_object_or_404(Movie, pk = movie_id)
+#     if request.method == "POST":
+#         movie.image = request.FILES.get('image')
+#         movie.title = request.POST.get('title')
+#         movie.director = request.POST.get('director')
+#         movie.genre = request.POST.get('genre')
+#         movie.ratings = request.POST.get('ratings')
+#         movie.releaseDate = request.POST.get('releaseDate')
+#         movie.description = request.POST.get('description')
+#         movie.save()
+#         return redirect('listMovie')
+#     return render(request, 'updateMovie.html', {'movie': movie})
+
 def updateMovie(request, movie_id):
     movie = get_object_or_404(Movie, pk = movie_id)
     if request.method == "POST":
-        movie.image = request.FILES.get('image')
-        movie.title = request.POST.get('title')
-        movie.director = request.POST.get('director')
-        movie.genre = request.POST.get('genre')
-        movie.ratings = request.POST.get('ratings')
-        movie.releaseDate = request.POST.get('releaseDate')
-        movie.description = request.POST.get('description')
-        movie.save()
-        return redirect('listMovie')
-    return render(request, 'updateMovie.html', {'movie': movie})
+        form = MovieForm(request.POST, request.FILES, instance=movie)
+        if form.is_valid():
+            form.save()
+            return redirect('listMovie')
+    else:
+        form=MovieForm(instance=movie)
+    return render(request, 'updateMovie.html', {'form': form})
 
 def deleteMovie (request, movie_id):
     movie = get_object_or_404(Movie, id = movie_id)
