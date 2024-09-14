@@ -24,7 +24,7 @@ def addMovie(request):
         form = MovieForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-        return redirect('listMovie')
+            return redirect('listMovie')
     else:
         form=MovieForm()
     
